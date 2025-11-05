@@ -1,0 +1,54 @@
+{
+  "name": "ai-chat-platform",
+  "version": "1.0.0",
+  "description": "Production-ready, provider-agnostic AI Chat platform",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node start.js",
+    "start:backend": "node server/server.js",
+    "start:frontend": "cd client && npm start",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "nodemon server/server.js",
+    "dev:frontend": "cd client && npm start",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "seed": "node seed/seedDemo.js",
+    "reset-quotas": "node scripts/reset-quotas.js",
+    "disable-safety": "node scripts/disable-safety.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "redis": "^4.6.10",
+    "ws": "^8.14.2",
+    "openai": "^4.20.1",
+    "@google-cloud/dialogflow": "^6.0.0",
+    "joi": "^17.11.0",
+    "winston": "^3.11.0",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "mongodb": "^6.20.0",
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3",
+    "@types/jest": "^29.5.7",
+    "mongodb-memory-server": "^9.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
