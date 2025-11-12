@@ -38,26 +38,41 @@ A production-ready, provider-agnostic AI chat platform built with the MERN stack
 - MongoDB (or use Docker)
 - Redis (optional, falls back to in-memory)
 
-### One-Command Startup
+### Complete Setup (First Time)
+
+**🎯 Complete setup with one command:**
+
+```bash
+npm run setup
+```
+
+This will install dependencies, configure the platform, and seed demo data.
+
+### Start the Platform
 
 **🚀 Start everything with a single command:**
 
 ```bash
-# Option 1: Use npm (recommended)
 npm start
-
-# Option 2: Use the startup script directly
-node start.js
-
-# Option 3: Platform-specific scripts
-# Windows:
-start.bat
-
-# Unix/Linux/Mac:
-chmod +x start.sh && ./start.sh
 ```
 
-This single command will:
+### Alternative Methods
+
+```bash
+# Development mode with auto-reload
+npm run dev
+
+# Platform-specific scripts
+# Windows: start.bat
+# Unix/Linux/Mac: ./start.sh
+```
+
+### Access Points
+- **Frontend**: http://localhost:3000  
+- **Backend**: http://localhost:4000
+- **Demo Login**: demo@example.com / demo123
+
+This setup will:
 - ✅ Check all requirements
 - ✅ Install dependencies (if needed)
 - ✅ Start the backend server
@@ -370,6 +385,22 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [ ] Advanced prompt templates
 - [ ] Conversation sharing and collaboration
 - [ ] API rate limiting per plan/tier
+
+---
+
+## 🌟 Repository Information
+
+- **Repository**: [Magenta91/Chatbot](https://github.com/Magenta91/Chatbot)
+- **License**: MIT License
+- **Contributions**: Welcome! Please read the contributing guidelines
+- **Issues**: Report bugs and request features via GitHub Issues
+
+## 📈 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/Magenta91/Chatbot?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Magenta91/Chatbot?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Magenta91/Chatbot)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Magenta91/Chatbot)
 
 ---
 

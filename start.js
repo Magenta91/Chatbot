@@ -141,8 +141,10 @@ function startBackend() {
       if (message) {
         logWithPrefix('BACKEND', message, colors.blue);
         
-        // Check if backend is ready
-        if (message.includes('Server running on port') && !backendReady) {
+        // Check if backend is ready - look for multiple possible indicators
+        if ((message.includes('Server running on port') || 
+             message.includes('"port":"4000"') || 
+             message.includes('port 4000')) && !backendReady) {
           backendReady = true;
           resolve(backend);
         }
@@ -163,14 +165,32 @@ function startBackend() {
       }
     });
 
-    // Timeout after 30 seconds
+    // Timeout after 15 seconds (reduced)
     setTimeout(() => {
       if (!backendReady) {
-        log('❌ Backend startup timeout', colors.red);
-        backend.kill();
-        reject(new Error('Backend startup timeout'));
+        log('❌ Backend startup timeout - checking if server is actually running...', colors.red);
+        
+        // Try to check if server is running via HTTP
+        const http = require('http');
+        const req = http.get('http://localhost:4000/health', (res) => {
+          if (res.statusCode === 200) {
+            log('✅ Backend is actually running, continuing...', colors.green);
+            backendReady = true;
+            resolve(backend);
+          } else {
+            backend.kill();
+            reject(new Error('Backend startup timeout'));
+          }
+        });
+        
+        req.on('error', () => {
+          backend.kill();
+          reject(new Error('Backend startup timeout'));
+        });
+        
+        req.setTimeout(5000);
       }
-    }, 30000);
+    }, 15000);
   });
 }
 

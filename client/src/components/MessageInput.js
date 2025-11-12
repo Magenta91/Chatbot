@@ -189,15 +189,21 @@ const MessageInput = ({ disabled, sessionSettings }) => {
         {sessionSettings && (
           <div className="mt-2 flex items-center justify-between text-xs text-gray-500">
             <div className="flex items-center space-x-4">
-              <span>Provider: {sessionSettings.provider}</span>
-              <span>Model: {sessionSettings.model}</span>
-              <span>Temperature: {sessionSettings.temperature}</span>
+              <span className="flex items-center space-x-1">
+                <span>Provider:</span>
+                <span className="font-medium text-gray-700">{sessionSettings.provider}</span>
+                {sessionSettings.provider === 'openai' && (
+                  <span className="px-1 py-0.5 bg-green-100 text-green-700 rounded text-xs">Free</span>
+                )}
+              </span>
+              <span>Model: <span className="font-medium">{sessionSettings.model}</span></span>
+              <span>Temp: <span className="font-medium">{sessionSettings.temperature}</span></span>
             </div>
             
             {isStreaming && (
-              <div className="flex items-center space-x-1">
-                <div className="animate-pulse h-2 w-2 bg-blue-500 rounded-full"></div>
-                <span>Generating response...</span>
+              <div className="flex items-center space-x-1 text-blue-600">
+                <div className="animate-spin h-3 w-3 border border-blue-600 border-t-transparent rounded-full"></div>
+                <span>AI is thinking...</span>
               </div>
             )}
           </div>

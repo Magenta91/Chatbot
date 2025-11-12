@@ -455,6 +455,9 @@ async function startServer() {
     await connectDatabase();
     
     server.listen(config.port, () => {
+      // Simple console log for startup script detection
+      console.log(`🚀 Server running on port ${config.port}`);
+      
       observability.info(`Server running on port ${config.port}`, {
         environment: config.nodeEnv,
         port: config.port

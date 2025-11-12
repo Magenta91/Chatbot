@@ -122,7 +122,7 @@ const Chat = () => {
               <div className="flex items-center space-x-1">
                 <button
                   onClick={toggleConnectionType}
-                  className="p-1 rounded text-gray-400 hover:text-gray-600"
+                  className="p-1 rounded text-gray-400 hover:text-gray-600 relative"
                   title={`Connection: ${connectionType.toUpperCase()}`}
                 >
                   {connectionType === 'http' ? (
@@ -130,6 +130,8 @@ const Chat = () => {
                   ) : (
                     <Wifi className="h-4 w-4" />
                   )}
+                  {/* Connection status indicator */}
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 </button>
                 <span className="text-xs text-gray-500">{connectionType.toUpperCase()}</span>
               </div>

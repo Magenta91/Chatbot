@@ -4,6 +4,7 @@
   "description": "Production-ready, provider-agnostic AI Chat platform",
   "main": "server/server.js",
   "scripts": {
+    "init": "node init-project.js",
     "start": "node start.js",
     "start:backend": "node server/server.js",
     "start:frontend": "cd client && npm start",
@@ -15,6 +16,7 @@
     "seed": "node seed/seedDemo.js",
     "reset-quotas": "node scripts/reset-quotas.js",
     "disable-safety": "node scripts/disable-safety.js",
+    "setup": "node setup.js",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

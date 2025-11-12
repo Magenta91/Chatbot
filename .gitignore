@@ -67,6 +67,9 @@ typings/
 .env.test.local
 .env.production.local
 
+# But keep example files
+!.env.example
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
@@ -80,7 +83,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public (commented out - we need client/public for React)
 
 # Storybook build outputs
 .out
